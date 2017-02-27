@@ -1,0 +1,54 @@
+#addBox{
+    width:500px;
+    height:200px;
+    display:inelin-block;
+}
+
+
+.inputLabel {
+    margin-right:5px;
+    width:100px;
+    display:inline-block;
+    vertical-align:top;
+}
+
+.inputField {
+    width:350px;
+    display:inelin-block;
+    vertical-align:top
+ }
+
+#courseCatalog{
+    width:900px;
+    height:300px;
+}
+
+#addButton {
+    color: white;
+    background-color:green;
+    margin-left:400px;
+    border:2px solid #000;
+}
+
+table tr:nth-child(odd) {
+    background-color: #ccc
+}
+
+table tr:nth-child(even) {
+
+
+}
+table td {
+    width:225px;
+    text-align:center;
+}
+
+.tableColTitle {
+    font-weight:bold;
+}
+
+#allCoursesInput {
+    padding-top:300px;
+    display:inline-block;
+
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        {% load static %}
+        <link rel = "stylesheet" type = "text/css" href = "{% static 'Courses/styles.css' %}" />
+    </head>
+    <body>
+            <form action = "/courses/addUserToCourse/" method = "post" id = "allCoursesInput">
+                {%csrf_token%}
+                <!-- User Option List -->
+                <select name = "usersList" >
+                    {% for user in allCurrentUsers %}
+                    <option value = '{{user.first_name}}_{{user.last_name}}' >{{user.first_name}} {{user.last_name}}</option>
+                    {% endfor %}
+                </select>
+                <!-- Courses Options List -->
+                <select name = "allCourses" >
+                    {% for course in courseCatalog %}
+                    <option value = '{{course.course_name}}' >{{course.course_name}}</option>
+                    {% endfor %}
+                </select>
+                <input type = "submit" value = "Add User To Course" />
+            </form>
+
+            <!--- Course Information -->
+            <table border = '1"'>
+                <tr>
+                    <td><span class="tableColTitle">Course ID</span></td>
+                    <td><span class="tableColTitle">Course Name</span></td>
+                    <td><span class="tableColTitle">Number Of Students</span></td>
+                </tr>
+                {% for course in courseCatalog %}
+                    <tr>
+                        <td>{{course.id}}</td>
+                        <td>{{course.course_name}}</td>
+                        <td>{{course.number_of_students}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <form action = "/courses">
+                <input type = "submit" value = "Return Home" />
+            </form>
+    </body>
+</html>

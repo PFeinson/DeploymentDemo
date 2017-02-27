@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        {% load static %}
+        <link rel = "stylesheet" type = "text/css" href = "{% static 'Courses/styles.css' %}" />
+    </head>
+    <body>
+        <div id = "addBox" >
+            <h4>Add a new course</h4>
+            <form action = "/courses/addCourse/" method = "post" >
+                {%csrf_token%}
+                <p>
+                    <span class = 'inputLabel'>Name:</span>
+                    <input type = "text" class = "inputField" name = "courseName" />
+                </p>
+                <p>
+                    <span class = "inputLabel">Description</span>
+                    <textarea name = "description" rows = "3" cols = "43" wrap="hard"></textarea>
+                </p>
+                <input type = "submit" id = "addButton" />
+            </form>
+        </div>
+        <form action = "/courses/allCourses/" method = "post" >
+            {%csrf_token%}
+            <input type = "submit" value = "Show All Courses"/>
+        </form>
+        <div id = "courseCatalog">
+            <h4>Courses:</h4>
+            <table border = '1"'>
+                <tr>
+                    <td><span class="tableColTitle">Course Name</span></td>
+                    <td><span class="tableColTitle">Description</span></td>
+                    <td><span class="tableColTitle">Data Added</span></td>
+                    <td><span class="tableColTitle">Actions</span></td>
+                </tr>
+                {% for course in courseCatalog %}
+                    <tr>
+                        <td>{{course.course_name}}</td>
+                        <td>{{course.course_description}}</td>
+                        <td>{{course.created_at}}</td>
+                        <td><a href=deleteClass/{{course.course_name}}>delete</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>

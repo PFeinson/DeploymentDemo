@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <link rel = "stylesheet" type="text/css" href="{% static 'timedisplay/styles.css' %}" />
+    </head>
+    <body>
+        <div id = 'header'>
+            The current time and date:
+        </div>
+        <div id = "currentTime">
+            {{currentTimeAndDate}}
+        </div>
+    </body>
+</html>
